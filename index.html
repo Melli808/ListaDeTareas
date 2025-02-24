@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Una lista de tareas interactiva con prioridades y categorías">
+  <title>Lista de Tareas</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <button id="toggle-dark-mode" aria-label="Alternar modo oscuro">
+  <svg class="dark-mode-icon moon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <!-- Luna -->
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+  <svg class="dark-mode-icon sun" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <!-- Sol -->
+    <circle cx="12" cy="12" r="5"></circle>
+    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+  </svg>
+</button>
+  </header>
+  
+  <main class="container" role="main">
+    <h1>Lista de Tareas</h1>
+    
+    <section class="task-form-wrapper">
+      <form id="task-form" aria-label="Formulario para añadir tareas">
+        <div class="form-group">
+          <label for="task-input" class="visually-hidden">Nueva tarea</label>
+          <input type="text" id="task-input" placeholder="Añade una nueva tarea" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="task-priority">Prioridad:</label>
+          <select id="task-priority" aria-label="Seleccionar prioridad">
+            <option value="alta">Alta</option>
+            <option value="media" selected>Media</option>
+            <option value="baja">Baja</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="task-due-date">Fecha límite:</label>
+          <input type="date" id="task-due-date" min="2025-02-24" aria-label="Fecha límite">
+        </div>
+        <div class="form-group">
+          <label for="task-category">Categoría:</label>
+          <select id="task-category" aria-label="Seleccionar categoría">
+            <option value="trabajo">Trabajo</option>
+            <option value="personal" selected>Personal</option>
+            <option value="estudio">Estudio</option>
+            <option value="otros">Otros</option>
+          </select>
+        </div>
+        <button type="submit" aria-label="Añadir nueva tarea">Añadir</button>
+      </form>
+    </section>
+    
+    <section class="task-controls">
+      <div class="filters" role="navigation" aria-label="Filtros de tareas">
+        <button id="filter-all" aria-label="Mostrar todas las tareas">Todas</button>
+        <button id="filter-completed" aria-label="Mostrar tareas completadas">Completadas</button>
+        <button id="filter-pending" aria-label="Mostrar tareas pendientes">Pendientes</button>
+      </div>
+      <div class="search-wrapper">
+        <label for="search-input" class="visually-hidden">Buscar tareas</label>
+        <input type="search" id="search-input" placeholder="Buscar tareas..." aria-label="Buscar entre las tareas">
+      </div>
+    </section>
+    
+    <section class="task-stats">
+  <p id="task-count" aria-live="polite">Tareas: 0 | Completadas: 0</p>
+  <div class="progress-bar">
+    <div id="progress-fill" style="width: 0%"></div>
+  </div>
+  <div class="stats">
+    <p id="priority-stats">Prioridades: Alta: 0 | Media: 0 | Baja: 0</p>
+    <p id="category-stats">Categorías: Trabajo: 0 | Personal: 0 | Estudio: 0 | Otros: 0</p>
+  </div>
+</section>
+    
+    <section class="task-list-wrapper">
+      <ul id="task-list" aria-label="Lista de tareas"></ul>
+    </section>
+    
+    <footer class="actions">
+      <button id="export-btn" aria-label="Exportar todas las tareas">Exportar</button>
+      <button id="import-btn" aria-label="Importar tareas desde archivo">Importar</button>
+    </footer>
+  </main>
+  
+  <script src="script.js" defer></script>
+</body>
+</html>
