@@ -1,0 +1,460 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Botones */
+  button {
+    background-color: #10b981; /* Verde esmeralda */
+  }
+  
+  button:hover {
+    background-color: #96056a;
+  }
+  
+  .task-item button {
+    background-color: #ef4444; /* Rojo más vibrante */
+  }
+  
+  .task-item button:hover {
+    background-color: #dc2626;
+  }
+  
+  .task-item button.edit-btn {
+    background-color: #f59e0b; /* Amarillo ámbar */
+  }
+  
+  .task-item button.edit-btn:hover {
+    background-color: #d97706;
+  }
+  
+  .task-item button.add-subtask-btn {
+    background-color: #10b981;
+  }
+  
+  .task-item button.add-subtask-btn:hover {
+    background-color: #059669;
+  }
+  
+  /* Barra de progreso */
+  #progress-fill {
+    background-color: #10b981;
+  }
+  
+  body.dark-mode #progress-fill {
+    background-color: #34d399;
+  }
+  
+  body.dark-mode {
+    background-color: #232947;
+    color: #fff;
+  }
+  
+  .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  body.dark-mode .container {
+    background-color: #1a1e31;
+    color: #fff;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  body.dark-mode h1 {
+    color: #fff;
+  }
+  
+  /* Formulario */
+  #task-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #task-input, #task-priority, #task-due-date, #task-category {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  body.dark-mode #task-input,
+  body.dark-mode #task-priority,
+  body.dark-mode #task-due-date,
+  body.dark-mode #task-category {
+    background-color: #555;
+    border-color: #666;
+    color: #fff;
+  }
+  
+  /* Botones generales */
+  button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  /* Filtros y búsqueda */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filters button, #search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #search-input {
+    background-color: #f9f9f9;
+  }
+  
+  body.dark-mode #search-input {
+    background-color: #555;
+    border-color: #666;
+    color: #fff;
+  }
+  
+  /* Contador de tareas y barra de progreso */
+  #task-count {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  body.dark-mode #task-count {
+    color: #ddd;
+  }
+  
+  .progress-bar {
+    height: 6px;
+    background-color: #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  #progress-fill {
+    height: 100%;
+    background-color: #28a745;
+    transition: width 0.3s ease;
+  }
+  
+  body.dark-mode .progress-bar {
+    background-color: #666;
+  }
+  
+  body.dark-mode #progress-fill {
+    background-color: #2ecc71;
+  }
+  
+  /* Lista de tareas */
+  #task-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    cursor: grab;
+  }
+  
+  body.dark-mode .task-item {
+    background-color: #555;
+    color: #fff;
+    border-color: #666;
+  }
+  
+  .task-item.completed {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  body.dark-mode .task-item.completed {
+    color: #aaa;
+  }
+  
+  .task-item.priority-alta {
+    border-left: 5px solid #dc3545;
+  }
+  
+  .task-item.priority-media {
+    border-left: 5px solid #ffc107;
+  }
+  
+  .task-item.priority-baja {
+    border-left: 5px solid #28a745;
+  }
+  
+  .task-item span.task-text {
+    flex-grow: 1;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .task-item small {
+    color: #777;
+    font-size: 0.85rem;
+  }
+  
+  body.dark-mode .task-item small {
+    color: #bbb;
+  }
+  
+  .task-item button {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 5px;
+  }
+  
+  .task-item button:hover {
+    background-color: #c82333;
+  }
+  
+  .task-item button.edit-btn {
+    background-color: #ffc107;
+    color: #333;
+  }
+  
+  .task-item button.edit-btn:hover {
+    background-color: #e0a800;
+  }
+  
+  .task-item button.add-subtask-btn {
+    background-color: #28a745;
+  }
+  
+  .task-item button.add-subtask-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* Subtareas */
+  .subtask-list {
+    margin-left: 20px;
+    margin-top: 5px;
+    list-style: none;
+    width: 100%;
+  }
+  
+  .subtask-list li {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    font-size: 0.9rem;
+  }
+  
+  .subtask-list input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  
+  .subtask-list li.completed {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  body.dark-mode .subtask-list li.completed {
+    color: #aaa;
+  }
+  
+  /* Edición Inline */
+  .edit-input {
+    padding: 5px;
+    border: 1px solid #28a745;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 0.9rem;
+    background-color: #fff;
+  }
+  
+  body.dark-mode .edit-input {
+    background-color: #555;
+    color: #fff;
+    border-color: #2ecc71;
+  }
+  
+  /* Animaciones */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .task-item {
+    animation: fadeIn 0.5s ease;
+  }
+  
+  /* Modo Oscuro Toggle con SVGs */
+  #toggle-dark-mode {
+    background-color: #333;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  body.dark-mode #toggle-dark-mode {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .dark-mode-icon {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .dark-mode-icon.moon {
+    opacity: 1;
+  }
+  
+  .dark-mode-icon.sun {
+    opacity: 0;
+    position: absolute;
+  }
+  
+  body.dark-mode .dark-mode-icon.moon {
+    opacity: 0;
+  }
+  
+  body.dark-mode .dark-mode-icon.sun {
+    opacity: 1;
+  }
+  
+  /* Clases adicionales para estructura */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  body.dark-mode .form-group label {
+    color: #ccc;
+  }
+  
+  .task-form-wrapper,
+  .task-controls,
+  .task-stats,
+  .task-list-wrapper {
+    margin-bottom: 20px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .container {
+      padding: 15px;
+      margin: 10px;
+    }
+  
+    #task-form {
+      flex-direction: column;
+    }
+  
+    .task-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  
+    .task-item button {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 5px;
+  }
+  .stats {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  body.dark-mode .stats {
+    color: #ccc;
+  }
+}
